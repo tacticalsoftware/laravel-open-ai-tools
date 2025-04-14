@@ -1,3 +1,34 @@
 {
-    "name": "tactical/laravel-open-ai-tools"
+    "name": "tactical/laravel-open-ai-tools",
+    "require": {
+        "php": "^8.4",
+        "laravel/framework": "^12.8",
+        "openai-php/laravel": "^0.11.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.22"
+    },
+    "autoload" : {
+        "psr-4": {
+            "Tactical\\OpenAiTools\\": "app"
+        },
+        "files": [
+            "app/helpers.php"
+        ]
+    },
+    "scripts": {
+        "format": "./vendor/bin/pint app config database"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Tactical\\OpenAiTools\\Providers\\OpenAiToolsProvider"
+            ]
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    }
 }
